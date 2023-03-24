@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>CKEditor Input</title>
+    <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  </head>
+  <body>
+    <form>
+      <textarea name="editor" id="editor"></textarea>
+      <br>
+      <button type="button" id="save-button">Save</button>
+    </form>
+
+    <script>
+      $(document).ready(function() {
+        CKEDITOR.replace('editor');
+        $('#save-button').click(function() {
+          var content = CKEDITOR.instances.editor.getData();
+          console.log(content);
+        });
+      });
+    </script>
+  </body>
+</html>
+
+<!-- Pada kode di atas, kita memuat library CKEditor dan jQuery dari CDN untuk kemudian digunakan di dalam halaman web kita.
+Pada tag <form>, kita menambahkan sebuah textarea dengan ID "editor". Kita juga menambahkan sebuah tombol "Save" dengan ID "save-button".
+Pada bagian JavaScript, kita menggunakan fungsi jQuery $(document).ready() untuk mengeksekusi kode di dalamnya setelah halaman selesai dimuat.
+Di dalam fungsi tersebut, kita menggunakan fungsi CKEDITOR.replace() untuk mengganti textarea dengan ID "editor" dengan editor CKEditor.
+Selanjutnya, kita menambahkan event listener pada tombol "Save" dengan menggunakan fungsi jQuery $('#save-button').click(). Ketika tombol "Save" diklik, fungsi callback akan dijalankan.
+Di dalam fungsi callback tersebut, kita mengambil konten dari editor CKEditor dengan menggunakan fungsi CKEDITOR.instances.editor.getData(). Kemudian, kita mencetak konten tersebut di console.
+Anda dapat mengubah logika di dalam fungsi callback untuk menyimpan konten ke server atau menyimpan konten ke dalam file. -->
